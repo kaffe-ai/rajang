@@ -1,3 +1,4 @@
+#include "test.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
@@ -49,6 +50,11 @@ void test_addfirst()
   assert(list_length(list) == 2);
   assert(list_addfirst(list, &c) == 0);
   pr_info("test_addfirst: PASSED\n");
+}
+
+void test_addlast()
+{
+  
 }
 
 
