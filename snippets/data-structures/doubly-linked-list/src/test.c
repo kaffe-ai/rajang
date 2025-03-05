@@ -50,26 +50,47 @@ void test_addfirst()
   assert(list_length(list) == 2);
   assert(list_addfirst(list, &c) == 0);
   pr_info("test_addfirst: PASSED\n");
+  list_destroy(list, (free_fn)freeint);
 }
 
 void test_addlast()
 {
-  
+  list_t *list = list_create((cmp_fn)intcmp);
+  int a = 10;
+  int b = 20;
+  char c = 'c';
+  assert(list_addlast(list, &a) == 0);
+  assert(list_length(list) == 1);
+  assert(list_addlast(list, &b) == 0);
+  assert(list_length(list) == 2);
+  assert(list_addlast(list, &c) == 0);
+  assert(list_length(list) == 3);
+  list_destroy(list, (free_fn)freeint);
+  assert(NULL == list);
+  pr_info("test_addlast: PASSED\n");
 }
-
 
 void test_popfirst()
 {
-  
+  list_t *list = list_create((cmp_fn)intcmp);
+    
 }
 
-void test_poplast();
+void test_poplast()
+{
 
-void test_remove();
+}
 
-void test_contains();
+void test_remove()
+{}
 
-void test_sort();
+void test_contains()
+{}
+
+void test_sort()
+{
+
+}
 
 void test_create_destroy_iter();
 
