@@ -187,6 +187,73 @@ int list_contains(list_t *list, void *item) {
   return 0;
 }
 
+void *list_remove(list_t *list, void *item)
+{
+  if (NULL == list || NULL == item) return NULL;
+
+  lnode_t *iter = list->head;
+  void* returnData = NULL;
+
+  // iterate through list and use compare on each item in list
+  // compare function returns 0 when the items are equal
+  while (NULL != iter) {
+    if (list->cmpfn(iter->data, item) == 0) { 
+
+      // case when item is found at head
+      // since its the head node head->prev and iter->prev 
+      // should both be NULL
+      if (NULL == iter->prev) {
+        returnData = list->head->data;
+        list->head = list->head->next;
+        
+        // check if enw head exists before setting prev
+        if (NULL != list->head) {
+          list->head->prev = NULL;
+        } else {
+          // list is now empty, update tail
+          list->tail = NULL;
+        }
+        
+        list->length -= 1;
+        free(iter);
+        return returnData;
+      }
+
+      // case when item is found at tail
+      if (NULL == iter->next) {
+        returnData= list->tail->data;
+
+        list->tail = list->tail->prev;
+        if (NULL != list->tail) {
+          list->tail->next = NULL;
+        } else {
+          list->head = NULL;
+        }
+
+        list->length -= 1;
+        free(iter);
+        return returnData;
+      }
+
+      // case for middle node
+      iter->prev->next = iter->next;
+      iter->next->prev = iter->prev;
+      returnData = iter->data;
+
+      free(iter);
+      list->length -= 1;
+
+      return returnData;
+    }
+
+    // go next
+    iter = iter->next;
+  }
+
+  // item is not found so returns NULL
+  return NULL;
+}
+
 
 /* ---- mergesort: Steffen Viken Valvaag ---- */
 
@@ -285,6 +352,7 @@ void list_sort(list_t *list) {
   }
   list->tail = prev;
 }
+
 
 list_iter_t *list_createiter(list_t *list) {
   if (NULL == list) {

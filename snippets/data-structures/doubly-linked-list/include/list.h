@@ -91,6 +91,14 @@ void list_sort(list_t *list);
 
 
 /**
+ * @brief Removes the first occurance of an item from the list, using the comparinson function
+ * @param list: pointer to list
+ * @param item: pointer to an item that compares as equial, usint the list cmpfn
+ * @returns Apointer to the removed item, or NULL if not found
+ */
+void *list_remove(list_t *list, void *item);
+
+/**
  * Type of list iterator. `list_iter_t` is an alias for `struct list_iter`
  */
 typedef struct list_iter list_iter_t;
