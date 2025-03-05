@@ -1,31 +1,31 @@
 ## Personal Codebase
 
 Welcome to my personal codebase! This repository serves as a collection of reusable code, templates, and utilities for various programming languages and projects. It’s designed to help me (and others) quickly bootstrap new projects, implement common algorithms, and maintain consistent coding standards.
-## Structure
-
-The repository is organized as follows:
-
-├── templates/               # Project templates for quick starts
-│   ├── c-project/           # C project template
-│   ├── python-project/      # Python project template
-│   └── web-project/         # Web project template
-├── snippets/                # Reusable code snippets
-│   ├── algorithms/          # Common algorithms
-│   ├── data-structures/     # Reusable data structures
-│   └── utilities/           # Utility functions
-├── scripts/                 # Automation scripts
-│   ├── build.sh             # Build scripts
-│   ├── deploy.sh            # Deployment scripts
-│   └── test.sh              # Testing scripts
-├── docs/                    # Documentation
-│   ├── README-template.md   # Template for README files
-│   └── coding-standards.md  # Coding guidelines
-├── configs/                 # Configuration files
-│   ├── .editorconfig        # Editor configuration
-│   ├── .gitignore           # Git ignore templates
-│   └── .clang-format        # Code formatting for C/C++
-└── LICENSE                  # License file
-
+<!--## Structure-->
+<!---->
+<!--The repository is organized as follows:-->
+<!---->
+<!--├── templates/               # Project templates for quick starts-->
+<!--│   ├── c-project/           # C project template-->
+<!--│   ├── python-project/      # Python project template-->
+<!--│   └── web-project/         # Web project template-->
+<!--├── snippets/                # Reusable code snippets-->
+<!--│   ├── algorithms/          # Common algorithms-->
+<!--│   ├── data-structures/     # Reusable data structures-->
+<!--│   └── utilities/           # Utility functions-->
+<!--├── scripts/                 # Automation scripts-->
+<!--│   ├── build.sh             # Build scripts-->
+<!--│   ├── deploy.sh            # Deployment scripts-->
+<!--│   └── test.sh              # Testing scripts-->
+<!--├── docs/                    # Documentation-->
+<!--│   ├── README-template.md   # Template for README files-->
+<!--│   └── coding-standards.md  # Coding guidelines-->
+<!--├── configs/                 # Configuration files-->
+<!--│   ├── .editorconfig        # Editor configuration-->
+<!--│   ├── .gitignore           # Git ignore templates-->
+<!--│   └── .clang-format        # Code formatting for C/C++-->
+<!--└── LICENSE                  # License file-->
+<!---->
 ## Current Implementations
 ### Data Structures
 
