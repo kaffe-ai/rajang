@@ -9,7 +9,7 @@ typedef struct lnode lnode_t;
 struct lnode {
   lnode_t *next;
   lnode_t *prev;
-  void *data;
+  void *item;
 };
 
 struct list {
@@ -35,12 +35,12 @@ static lnode_t *newnode(void *item) {
 
   newNode->next = NULL;
   newNode->prev = NULL;
-  newNode->data = item;
+  newNode->item = item;
 
   return newNode;
 }
 
-list_t *list_create(cmp_fn cmpfn) {
+list_t *list_create(const cmp_fn cmpfn) {
   if (NULL == cmpfn) {
     pr_error("Failed compare function not given %s, %d\n", __FILE__, __LINE__);
     return NULL;
@@ -71,7 +71,7 @@ void list_destroy(list_t *list, free_fn item_free) {
   // If a item_free funciton is provided we call it every node->data
   while (NULL != iter) {
     lnode_t *next = iter->next;
-    if (NULL != item_free) item_free(iter->data);
+    if (NULL != item_free) item_free(iter->item);
     free(iter);
     iter = next; 
   }
@@ -141,7 +141,7 @@ void *list_popfirst(list_t *list) {
   if (NULL == list) PANIC("List is empty, PANICING(exiting)\n");
   
   lnode_t *oldHead = list->head;
-  void *returnData = list->head->data;
+  void *returnData = list->head->item;
 
   // We're removing the first item of the list so we go next
   list->head = list->head->next;
@@ -161,7 +161,7 @@ void *list_poplast(list_t *list) {
   if (NULL == list) PANIC("List is empty, PANICING(exiting)\n");
 
   lnode_t *oldTail = list->tail;
-  void *returnData = list->tail->data;
+  void *returnData = list->tail->item;
 
   list->tail = list->tail->prev;
 
@@ -180,7 +180,7 @@ int list_contains(list_t *list, void *item) {
   lnode_t *iter = list->head;
 
   while (NULL != iter) {
-    if (list->cmpfn(iter->data, item) == 0) return 1;
+    if (list->cmpfn(iter->item, item) == 0) return 1;
     iter = iter->next;
   }
 
@@ -197,13 +197,13 @@ void *list_remove(list_t *list, void *item)
   // iterate through list and use compare on each item in list
   // compare function returns 0 when the items are equal
   while (NULL != iter) {
-    if (list->cmpfn(iter->data, item) == 0) { 
+    if (list->cmpfn(iter->item, item) == 0) {
 
       // case when item is found at head
       // since its the head node head->prev and iter->prev 
       // should both be NULL
       if (NULL == iter->prev) {
-        returnData = list->head->data;
+        returnData = list->head->item;
         list->head = list->head->next;
         
         // check if enw head exists before setting prev
@@ -221,7 +221,7 @@ void *list_remove(list_t *list, void *item)
 
       // case when item is found at tail
       if (NULL == iter->next) {
-        returnData= list->tail->data;
+        returnData= list->tail->item;
 
         list->tail = list->tail->prev;
         if (NULL != list->tail) {
@@ -238,7 +238,7 @@ void *list_remove(list_t *list, void *item)
       // case for middle node
       iter->prev->next = iter->next;
       iter->next->prev = iter->prev;
-      returnData = iter->data;
+      returnData = iter->item;
 
       free(iter);
       list->length -= 1;
@@ -267,7 +267,7 @@ void *list_remove(list_t *list, void *item)
 static lnode_t *merge(lnode_t *a, lnode_t *b, cmp_fn cmpfn) {
   lnode_t *head, *tail;
 
-  if (cmpfn(a->data, b->data) < 0) {
+  if (cmpfn(a->item, b->item) < 0) {
     head = tail = a;
     a = a->next;
   } else {
@@ -277,7 +277,7 @@ static lnode_t *merge(lnode_t *a, lnode_t *b, cmp_fn cmpfn) {
 
   /* Now repeatedly pick the smallest head node */
   while (a && b) { 
-    if (cmpfn(a->data, b->data) < 0) {
+    if (cmpfn(a->item, b->item) < 0) {
       tail->next = a;
       tail = a;
       a = a->next;
@@ -386,7 +386,7 @@ void *list_next(list_iter_t *iter) {
     return NULL;
   }
 
-  void *returnData = iter->node->data;
+  void *returnData = iter->node->item;
 
   if (list_hasnext(iter)) {
     iter->node = iter->node->next;
