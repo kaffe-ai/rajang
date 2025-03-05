@@ -64,11 +64,9 @@ Welcome to my personal codebase! This repository serves as a collection of reusa
 
     Use .clang-format for C/C++ code formatting.
 
-Getting Started
+## Getting Started
 
     Clone the repository:
-    bash
-    Copy
 
     git clone https://github.com/your-username/your-repo.git
 
@@ -78,7 +76,7 @@ Getting Started
 
     Follow the guidelines in docs/coding-standards.md for consistent coding practices.
 
-Contributing
+## Contributing
 
 Contributions are welcome! If you’d like to add a new template, snippet, or script, follow these steps:
 
@@ -88,7 +86,7 @@ Contributions are welcome! If you’d like to add a new template, snippet, or sc
 
     Submit a pull request with a detailed description of your changes.
 
-License
+## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 Roadmap
@@ -103,11 +101,11 @@ Roadmap
 
     Add CI/CD configurations for automated testing and deployment.
 
-Contact
+## Contact
 
 If you have any questions or suggestions, feel free to reach out:
 
-    Email: your-email@example.com
+    Email: tma096@uit.no
 
     GitHub Issues: Open an issue
 
