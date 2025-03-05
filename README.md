@@ -29,7 +29,8 @@ Welcome to my personal codebase! This repository serves as a collection of reusa
 ## Current Implementations
 ### Data Structures
 
-    Linked List: A fully implemented linked list with support for common operations (e.g., add, remove, sort, iterate).
+    Linked List: A fully implemented linked list with support for common operations (e.g., add first/last,
+    pop first/last, sort (currently using a mergesort implementation), iterate).
 
     Hash Table: Coming soon! A hash table implementation using the linked list for collision resolution.
 
