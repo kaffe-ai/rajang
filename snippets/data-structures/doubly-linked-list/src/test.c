@@ -33,7 +33,7 @@ void test_create_destroy()
   list_t *list = list_create((cmp_fn)intcmp);
   assert(list != NULL);
   assert(list_length(list) == 0);
-  list_destroy(list, (free_fn)freeint);
+  list_destroy(list, NULL);
   pr_info("test_create_destroy: PASSED\n");
 }
 
@@ -50,7 +50,7 @@ void test_addfirst()
   assert(list_length(list) == 2);
   assert(list_addfirst(list, &c) == 0);
   pr_info("test_addfirst: PASSED\n");
-  list_destroy(list, (free_fn)freeint);
+  list_destroy(list, NULL);
 }
 
 void test_addlast()
@@ -65,15 +65,21 @@ void test_addlast()
   assert(list_length(list) == 2);
   assert(list_addlast(list, &c) == 0);
   assert(list_length(list) == 3);
-  list_destroy(list, (free_fn)freeint);
-  assert(NULL == list);
+  list_destroy(list, NULL);
   pr_info("test_addlast: PASSED\n");
 }
 
 void test_popfirst()
 {
+  int a = 0;
+  int b = 1;
   list_t *list = list_create((cmp_fn)intcmp);
-    
+  list_addfirst(list, &a);
+  list_addfirst(list, &b);
+  list_popfirst(list);
+  assert(list_length(list) == 1);
+  pr_info("test_popfirst: PASSED\n");
+  list_destroy(list, NULL);
 }
 
 void test_poplast()
@@ -85,18 +91,32 @@ void test_remove()
 {}
 
 void test_contains()
-{}
+{
+
+}
 
 void test_sort()
 {
 
 }
 
-void test_create_destroy_iter();
+void test_create_destroy_iter() 
+{
 
-void test_has_next();
+}
 
-void test_next();
+void test_has_next()
+{
 
-void test_resetiter();
+}
+
+void test_next()
+{
+
+}
+
+void test_resetiter()
+{
+
+}
 
