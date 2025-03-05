@@ -1,0 +1,25 @@
+# Ignore all dotfiles and dot directories
+.*
+
+# Exclude .gitignore and .gitattributes (if you want to keep them in the repo)
+!.gitignore
+!.gitattributes
+
+# Ignore build and output directories
+bin/
+obj/
+dist/
+build/
+
+# Ignore environment-specific files
+.env
+.venv/
+venv/
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
