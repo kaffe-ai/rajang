@@ -1,0 +1,44 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c2x",
+      "-D_GNU_SOURCE",
+      "-Og",
+      "-DDEBUG",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Wno-constant-logical-operand",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "obj/linkedlist.o",
+      "src/linkedlist.c"
+    ],
+    "directory": "/Users/tordm/projects/rajang/snippets/data-structures/doubly-linked-list",
+    "file": "/Users/tordm/projects/rajang/snippets/data-structures/doubly-linked-list/src/linkedlist.c",
+    "output": "/Users/tordm/projects/rajang/snippets/data-structures/doubly-linked-list/obj/linkedlist.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/cc",
+      "-std=c2x",
+      "-D_GNU_SOURCE",
+      "-Og",
+      "-DDEBUG",
+      "-g",
+      "-Wall",
+      "-Wextra",
+      "-Wno-constant-logical-operand",
+      "-Iinclude",
+      "-c",
+      "-o",
+      "obj/main.o",
+      "src/main.c"
+    ],
+    "directory": "/Users/tordm/projects/rajang/snippets/data-structures/doubly-linked-list",
+    "file": "/Users/tordm/projects/rajang/snippets/data-structures/doubly-linked-list/src/main.c",
+    "output": "/Users/tordm/projects/rajang/snippets/data-structures/doubly-linked-list/obj/main.o"
+  }
+]
